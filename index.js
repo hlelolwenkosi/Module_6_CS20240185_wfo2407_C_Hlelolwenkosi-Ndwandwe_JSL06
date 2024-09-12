@@ -1,10 +1,18 @@
 // Sample menu data (Consider fetching this data from a server in a real-world scenario)
 const menu = {
-    Starters: ["Garlic Bread", "Bruschetta"],
-    MainCourses: ["Margherita Pizza", "Spaghetti Carbonara"],
-    Desserts: ["Tiramisu", "Cheesecake"]
+    Starters: [
+        { name: "Garlic Bread", price: 25 },
+        { name: "Bruschetta", price: 30 }
+    ],
+    MainCourses: [
+        { name: "Margherita Pizza", price: 85 },
+        { name: "Spaghetti Carbonara", price: 95 }
+    ],
+    Desserts: [
+        { name: "Tiramisu", price: 50 },
+        { name: "Cheesecake", price: 55 }
+    ]
 };
-
 // Function to display menu items by category
 function displayMenuItems(menu) {
     // Get the menu container element from the HTML
