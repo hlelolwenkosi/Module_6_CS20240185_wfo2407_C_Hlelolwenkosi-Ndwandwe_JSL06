@@ -69,11 +69,26 @@ function addToOrder(item) {
     orderItem.addEventListener('click', () => removeFromOrder(orderItem, item.price));
 }
 
+// Function to remove an item from the order
+function removeFromOrder(orderItem, itemPrice) {
+    // Get the order total element
+    const orderTotalElem = document.getElementById('order-total');
 
-// Function to initialize the menu system
-function initMenuSystem(menu) {
-    // Call the function to display menu items
+    // Remove the item from the order list
+    orderItem.remove();
+
+    // Calculate and update the total price
+    const currentTotal = parseFloat(orderTotalElem.textContent);
+    const newTotal = currentTotal - itemPrice;
+    orderTotalElem.textContent = newTotal.toFixed(2);
 }
 
-// Start the menu system by calling the init function
-initMenuSystem(menu);
+
+// Function to initialize the menu system
+function initMenuSystem() {
+    // Call the displayMenuItems function to display the menu
+    displayMenuItems(menu);
+}
+
+// Call the init function to start the menu system
+initMenuSystem();
