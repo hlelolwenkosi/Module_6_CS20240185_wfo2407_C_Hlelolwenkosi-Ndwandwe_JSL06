@@ -15,31 +15,36 @@ const menu = {
 };
 // Function to display menu items by category
 function displayMenuItems(menu) {
-    // Get the menu container element from the HTML
+    // Get a reference to the menu container in your HTML
+    const menuContainer = document.getElementById('menu');
 
     // Loop through each category and its items in the menu object
+    for (const [category, items] of Object.entries(menu)) {
+        // Create an h3 element for the category
+        const categoryHeading = document.createElement('h3');
+        categoryHeading.textContent = category;
 
-        // Create an element to represent the category
+        // Append the category heading to the menu container
+        menuContainer.appendChild(categoryHeading);
 
-        // Set the text content of the category element to the category name
-
-        // Append the category element to the menu container
-
-        // Create an element to represent a list of items
-
-        // Append a list of items element to the menu container
+        // Create a list element for the items in the category
+        const itemList = document.createElement('ul');
 
         // Loop through the items in the category and create list items
-
-            // Create a list item element
-
-            // Set the text content of the list item element to the item name
+        items.forEach(item => {
+            const listItem = document.createElement('li');
+            listItem.textContent = `${item.name} - R${item.price}`;
 
             // Attach a click event listener to the list item to add it to the order
+            listItem.addEventListener('click', () => addToOrder(item));
 
-            // Append the list item to the list of items
+            // Append the list item to the category's list
+            itemList.appendChild(listItem);
+        });
 
-            
+        // Append the list to the menu container
+        menuContainer.appendChild(itemList);
+    }
 }
 
 // Callback function for adding an item to the order
